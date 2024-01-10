@@ -9,3 +9,7 @@
   --primary: #c80000;
   --light-primary: #ca3c3c;
 }
+
+img {
+  max-width: 100%;
+}
