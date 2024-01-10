@@ -15,8 +15,14 @@
       <!-- Uso ngIf per dare una condizione basata sulla propietà del componente.
       Se è true verra mostrato, se false no -->
       <ul *ngIf="isMenuShowed || isLargeScreen" class="navbar-nav">
-        <a class="nav-link" routerLink="/">DASHBOARD</a>
-        <a class="nav-link" routerLink="/dipendenti" routerLinkActive="true"
+        <a
+          class="nav-link"
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >DASHBOARD</a
+        >
+        <a class="nav-link" routerLink="/dipendenti" routerLinkActive="active"
           >DIPENDENTI</a
         >
         <a class="nav-link">CLIENTI</a>

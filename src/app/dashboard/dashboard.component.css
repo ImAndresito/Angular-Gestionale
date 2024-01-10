@@ -43,6 +43,10 @@
   cursor: pointer;
 }
 
+.active {
+  background-color: var(--light-primary) !important;
+}
+
 .content-container {
   /* border: 2px solid rgb(0, 255, 0); */
   width: 100%;
