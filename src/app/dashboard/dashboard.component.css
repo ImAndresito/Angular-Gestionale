@@ -1,34 +1,39 @@
 .dashboard-container {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   height: 100vh;
 }
 
 .navbar-container {
-  background-color: grey;
   text-align: center;
 }
 
 .navbar {
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   padding: 0;
+}
+
+.navbar-brand {
+  width: 200px;
+  padding: 1em;
 }
 
 .navbar button {
   position: absolute;
   width: 40px;
-  top: 1em;
+  top: 1.5em;
   right: 1.5em;
   background-color: var(--primary);
   border-radius: 5px;
   border: none;
 }
-.navbar img {
-  width: 200px;
+
+.navbar button img {
+  width: inherit;
 }
 
 .navbar-nav {
   width: 100%;
-  border: 2px solid rebeccapurple;
+  /* border: 2px solid rebeccapurple; */
 }
 .navbar-nav a {
   color: var(--white);
@@ -38,7 +43,7 @@
 }
 
 .content-container {
-  border: 2px solid rgb(0, 255, 0);
+  /* border: 2px solid rgb(0, 255, 0); */
   width: 100%;
 }
 

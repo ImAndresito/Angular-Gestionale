@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,31 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent {
-  ngOnInit() {
-    this.toggleNavBarCollapse();
+  ngOnInit() {}
+
+  isMenuShowed = false;
+  isLargeScreen = window.innerWidth > 768;
+
+  showMenu() {
+    this.isMenuShowed = !this.isMenuShowed;
   }
 
-  private toggleNavBarCollapse() {
-    const windowWidth = window.innerWidth;
-    if (windowWidth < 992) {
-      this.addCollapseClass();
-    } else {
-      this.removeCollapseClass();
-    }
-  }
-
-  private addCollapseClass() {
-    const navbarCollapse = document.getElementById('navbarNavAltMarkup');
-    // Metto if (navbarCollapse) per controllare che non sia null o undefined, ma che sia stato trovato l'elemento con ID navbarNav....
-    if (navbarCollapse) {
-      navbarCollapse.classList.add('collapse');
-    }
-  }
-
-  private removeCollapseClass() {
-    const navbarCollapse = document.getElementById('navbarNavAltMarkup');
-    if (navbarCollapse) {
-      navbarCollapse.classList.remove('collapse');
-    }
+  //FAR SI CHE CONTROLLI LA DIMENSIONE DEL DISPOSITO SENZA DOVER RICARE LA PAGINA
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.isLargeScreen = event.target.innerWidth > 768;
   }
 }

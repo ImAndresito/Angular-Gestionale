@@ -1,9 +1,14 @@
 <div class="dashboard-container">
-  <div class="navbar-container">
+  <div class="navbar-container bg-body-tertiary">
     <nav class="navbar">
-      <img src="/assets/img/logo.png" alt="" />
-      <button><img src="/assets/svg-icons/hamburger-menu.svg" alt="" /></button>
-      <ul class="navbar-nav">
+      <img src="/assets/img/logo.png" alt="logo" class="navbar-brand" />
+      <!-- Binding dell'evento (click) a un metodo nel componente -->
+      <button *ngIf="!isLargeScreen" (click)="showMenu()">
+        <img src="/assets/svg-icons/hamburger-menu.svg" alt="menu" />
+      </button>
+      <!-- Uso ngIf per dare una condizione basata sulla propietà del componente.
+      Se è true verra mostrato, se false no -->
+      <ul *ngIf="isMenuShowed || isLargeScreen" class="navbar-nav">
         <a class="nav-link">DASHBOARD</a>
         <a class="nav-link">DIPENDENTI</a>
         <a class="nav-link">CLIENTI</a>
