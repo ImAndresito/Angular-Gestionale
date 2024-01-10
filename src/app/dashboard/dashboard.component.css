@@ -1,0 +1,62 @@
+.dashboard-container {
+  border: 2px solid red;
+  height: 100vh;
+}
+
+.navbar-container {
+  background-color: grey;
+  text-align: center;
+}
+
+.navbar {
+  border: 2px solid blue;
+  padding: 0;
+}
+
+.navbar button {
+  position: absolute;
+  width: 40px;
+  top: 1em;
+  right: 1.5em;
+  background-color: var(--primary);
+  border-radius: 5px;
+  border: none;
+}
+.navbar img {
+  width: 200px;
+}
+
+.navbar-nav {
+  width: 100%;
+  border: 2px solid rebeccapurple;
+}
+.navbar-nav a {
+  color: var(--white);
+  text-decoration: none;
+  background-color: var(--primary);
+  cursor: pointer;
+}
+
+.content-container {
+  border: 2px solid rgb(0, 255, 0);
+  width: 100%;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .dashboard-container {
+    display: flex;
+  }
+
+  .navbar {
+    flex-direction: column;
+  }
+
+  .navbar button {
+    display: none;
+  }
+
+  .navbar a:hover {
+    background-color: var(--light-primary);
+  }
+}
