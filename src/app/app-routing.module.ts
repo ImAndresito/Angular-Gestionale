@@ -4,8 +4,9 @@ import { DipendentiComponent } from './dashboard/business-unit/dipendenti/dipend
 import { BusinessUnitComponent } from './dashboard/business-unit/business-unit.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
-    path: '',
+    path: 'home',
     component: BusinessUnitComponent,
   },
   {

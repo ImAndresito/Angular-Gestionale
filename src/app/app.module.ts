@@ -6,19 +6,17 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BusinessUnitComponent } from './dashboard/business-unit/business-unit.component';
 import { DipendentiComponent } from './dashboard/business-unit/dipendenti/dipendenti.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     BusinessUnitComponent,
-    DipendentiComponent
+    DipendentiComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
