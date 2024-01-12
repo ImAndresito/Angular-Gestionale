@@ -5,6 +5,7 @@
 
 .navbar-container {
   text-align: center;
+  position: relative;
 }
 
 .navbar {
@@ -52,6 +53,10 @@
   width: 100%;
 }
 
+.aggiungi-dipendente-btn {
+  margin: 1em 0;
+}
+
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .dashboard-container {
@@ -68,5 +73,13 @@
 
   .navbar a:hover {
     background-color: var(--light-primary);
+  }
+
+  .aggiungi-dipendente-btn {
+    position: absolute;
+    bottom: 1.2em;
+    margin-right: 50%;
+    transform: translateX(-50%);
+    width: 180px;
   }
 }
