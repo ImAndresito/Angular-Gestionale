@@ -20,7 +20,7 @@ export class DipendentiComponent {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  getURL = 'http://localhost:8080/dip/dipendenti';
+  getURL = 'http://localhost:8080/api/dipendenti';
 
   getDipendenti(): Observable<Dipendente[]> {
     return this.http.get<Dipendente[]>(this.getURL);
