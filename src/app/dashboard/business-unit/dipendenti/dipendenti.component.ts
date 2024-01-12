@@ -11,12 +11,12 @@ import { Dipendente } from 'src/app/interface/dipendente';
 })
 export class DipendentiComponent {
   newDipendente: Dipendente[] = [];
-  dipendenti: Dipendente[] = [
-    new Dipendente('Andres', 'Villa', '20-02-2024'),
-    new Dipendente('Manuel', 'Villa', '20-02-2025'),
-    new Dipendente('Mattia', 'Bosco', '20-02-2026'),
-    new Dipendente('Antony', 'Rosello', '20-02-2027'),
-  ];
+  // dipendenti: Dipendente[] = [
+  //   new Dipendente('Andres', 'Villa', '20-02-2024'),
+  //   new Dipendente('Manuel', 'Villa', '20-02-2025'),
+  //   new Dipendente('Mattia', 'Bosco', '20-02-2026'),
+  //   new Dipendente('Antony', 'Rosello', '20-02-2027'),
+  // ];
 
   constructor(private http: HttpClient, private router: Router) {}
 

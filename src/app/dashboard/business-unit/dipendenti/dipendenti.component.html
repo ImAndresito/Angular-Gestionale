@@ -5,6 +5,7 @@
       <th></th>
       <th scope="col">Nome</th>
       <th scope="col">Cognome</th>
+      <th scope="col" class="text-center">Business Unit</th>
       <th class="hide-on-mobile" scope="col">Data Assunzione</th>
       <th></th>
       <th></th>
@@ -15,6 +16,7 @@
       <td></td>
       <td>{{ dipendente.nome }}</td>
       <td>{{ dipendente.cognome }}</td>
+      <td class="text-center">{{ dipendente.businessUnit.nome }}</td>
       <td class="hide-on-mobile">{{ dipendente.dataAssunzione }}</td>
       <td>
         <button class="btn btn-primary me-4">Info</button>
