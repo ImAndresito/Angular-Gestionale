@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DipendentiComponent } from './dashboard/business-unit/dipendenti/dipendenti.component';
 import { BusinessUnitComponent } from './dashboard/business-unit/business-unit.component';
+import { FormAggiungiDipendenteComponent } from './dashboard/form-aggiungi-dipendente/form-aggiungi-dipendente.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -10,8 +11,12 @@ const routes: Routes = [
     component: BusinessUnitComponent,
   },
   {
-    path: 'dipendenti',
+    path: 'dip',
     component: DipendentiComponent,
+  },
+  {
+    path: 'aggiungiDip',
+    component: FormAggiungiDipendenteComponent,
   },
 ];
 

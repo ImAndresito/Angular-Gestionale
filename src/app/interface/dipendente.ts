@@ -1,11 +1,9 @@
-export class Dipendente {
-  constructor(
-    public nome: string,
-    public cognome: string,
-    public dataAssunzione: string,
-    public businessUnit: { id: number; nome: string },
-    public email: string,
-    public codiceFiscale: string,
-    public dataNascita: string
-  ) {}
+export interface Dipendente {
+  nome: string;
+  cognome: string;
+  dataAssunzione: string;
+  businessUnit: { id: number; nome: string };
+  email: string;
+  codiceFiscale: string;
+  dataNascita: string;
 }

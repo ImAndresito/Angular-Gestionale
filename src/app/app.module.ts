@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { BusinessUnitComponent } from './dashboard/business-unit/business-unit.component';
 import { DipendentiComponent } from './dashboard/business-unit/dipendenti/dipendenti.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormAggiungiDipendenteComponent } from './dashboard/form-aggiungi-dipendente/form-aggiungi-dipendente.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     BusinessUnitComponent,
     DipendentiComponent,
+    FormAggiungiDipendenteComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
