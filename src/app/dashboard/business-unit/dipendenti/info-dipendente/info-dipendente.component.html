@@ -1,19 +1,34 @@
 <div class="container">
-  <h4>INFO DIPENDENTE</h4>
-  <h5 *ngIf="dipendente">{{ dipendente.nome }} {{ dipendente.cognome }}</h5>
-  <p>
-    Business Unit: <b>{{ dipendente.businessUnit.nome }}</b>
-  </p>
-  <p>
-    Data Assunzione: <b>{{ dipendente.dataAssunzione }}</b>
-  </p>
-  <p>
-    Email: <b>{{ dipendente.email }}</b>
-  </p>
-  <p>
-    Codice Fiscale: <b>{{ dipendente.codiceFiscale }}</b>
-  </p>
-  <p>
-    Data di Nascita: <b>{{ dipendente.dataNascita }}</b>
-  </p>
+  <h4 class="grey-text">INFO DIPENDENTE</h4>
+  <div class="dipendente-container">
+    <h5 *ngIf="dipendente">{{ dipendente.nome }} {{ dipendente.cognome }}</h5>
+    <p>
+      Business Unit: <b>{{ dipendente.businessUnit.nome }}</b>
+    </p>
+    <p>
+      Data Assunzione: <b>{{ dipendente.dataAssunzione }}</b>
+    </p>
+    <p>
+      Email: <b>{{ dipendente.email }}</b>
+    </p>
+    <p>
+      Codice Fiscale: <b>{{ dipendente.codiceFiscale }}</b>
+    </p>
+    <p>
+      Data di Nascita: <b>{{ dipendente.dataNascita }}</b>
+    </p>
+    <button class="btn btn-danger">Modifica</button>
+  </div>
+  <div class="col-sm-6">
+    <div class="card d-inline-block">
+      <img src="/assets/img/table.png" class="card-img-top" alt="design" />
+      <div class="card-body">
+        <a>
+          <h5 class="card-title">STATO ATTUALE</h5>
+          <button class="btn-card"><b>Scopri di più!</b></button>
+        </a>
+        <div class="card-info"></div>
+      </div>
+    </div>
+  </div>
 </div>

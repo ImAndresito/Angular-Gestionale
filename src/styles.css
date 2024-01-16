@@ -8,7 +8,7 @@
   --black: #000;
   --primary: #c80000;
   --light-primary: #ca3c3c;
-  --grey: #d9d9d9;
+  --grey: #7e8080;
 }
 
 img {
@@ -17,6 +17,13 @@ img {
 
 .text-align {
   text-align: center;
+}
+
+.grey-text {
+  color: var(--grey);
+  color: #7e8080;
+  font-weight: 500;
+  font-size: 1.5em;
 }
 
 @media (max-width: 768px) {

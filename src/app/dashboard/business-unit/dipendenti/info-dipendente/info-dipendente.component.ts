@@ -18,7 +18,6 @@ export class InfoDipendenteComponent implements OnInit {
     this.route.paramMap.subscribe(() => {
       const state = window.history.state;
       this.dipendente = state.dipendente;
-      console.log('Dipendente in InfoDipendenteComponent:', this.dipendente);
     });
   }
 }
