@@ -10,6 +10,7 @@ export class DipendenteService {
   private baseURL = 'http://localhost:8080/dip';
   private deleteURL = 'http://localhost:8080/delete/dip';
   private getByIdURL = 'http://localhost:8080/dipendente';
+  private addDip = 'http://localhost:8080/add/dipendente';
 
   constructor(private http: HttpClient) {}
 
@@ -26,5 +27,13 @@ export class DipendenteService {
   getDipById(id: number): Observable<Dipendente> {
     const url = `${this.getByIdURL}/${id}`;
     return this.http.get<Dipendente>(url);
+  }
+
+  addDipendente(dipendente: Dipendente): Observable<Dipendente> {
+    // Convert the single dipendente object into an array
+    const dipendenteArray: Dipendente[] = [dipendente];
+
+    const url = this.addDip;
+    return this.http.post<Dipendente>(url, dipendenteArray);
   }
 }
