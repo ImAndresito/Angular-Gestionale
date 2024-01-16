@@ -16,11 +16,12 @@ span {
 
 .table thead {
   background-color: #d9d9d9;
+  vertical-align: middle;
 }
 
 .table thead th {
-  padding: 0.8em 0;
-  font-weight: 400;
+  padding: 0.7em 0;
+  font-weight: 500;
   font-size: 1.15em;
 }
 
@@ -33,6 +34,23 @@ table td {
   color: var(--white);
 }
 
-.btn-info img {
+.btn img {
+  display: none;
+}
+
+.btn-danger img {
+  display: inline;
   margin: 0 0.4em 0.2em 0;
+}
+
+.btn-danger {
+  vertical-align: middle;
+}
+
+/* Medium devices (tablets, 933px and up) */
+@media (min-width: 933px) {
+  .btn img {
+    display: inline;
+    margin: 0 0.4em 0.2em 0;
+  }
 }
