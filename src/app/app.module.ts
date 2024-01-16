@@ -9,6 +9,7 @@ import { DipendentiComponent } from './dashboard/business-unit/dipendenti/dipend
 import { HttpClientModule } from '@angular/common/http';
 import { FormAggiungiDipendenteComponent } from './dashboard/form-aggiungi-dipendente/form-aggiungi-dipendente.component';
 import { InfoDipendenteComponent } from './dashboard/business-unit/dipendenti/info-dipendente/info-dipendente.component';
+import { StatoAttualeComponent } from './dashboard/business-unit/dipendenti/info-dipendente/stato-attuale/stato-attuale.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { InfoDipendenteComponent } from './dashboard/business-unit/dipendenti/in
     DipendentiComponent,
     FormAggiungiDipendenteComponent,
     InfoDipendenteComponent,
+    StatoAttualeComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
