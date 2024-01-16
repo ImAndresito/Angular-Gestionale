@@ -7,7 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { BusinessUnitComponent } from './dashboard/business-unit/business-unit.component';
 import { DipendentiComponent } from './dashboard/business-unit/dipendenti/dipendenti.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormAggiungiDipendenteComponent } from './dashboard/form-aggiungi-dipendente/form-aggiungi-dipendente.component';
+import { AggiungiDipendenteComponent } from './dashboard/aggiungi-dipendente/aggiungi-dipendente.component';
 import { InfoDipendenteComponent } from './dashboard/business-unit/dipendenti/info-dipendente/info-dipendente.component';
 import { StatoAttualeComponent } from './dashboard/business-unit/dipendenti/info-dipendente/stato-attuale/stato-attuale.component';
 
@@ -17,7 +17,7 @@ import { StatoAttualeComponent } from './dashboard/business-unit/dipendenti/info
     DashboardComponent,
     BusinessUnitComponent,
     DipendentiComponent,
-    FormAggiungiDipendenteComponent,
+    AggiungiDipendenteComponent,
     InfoDipendenteComponent,
     StatoAttualeComponent,
   ],
