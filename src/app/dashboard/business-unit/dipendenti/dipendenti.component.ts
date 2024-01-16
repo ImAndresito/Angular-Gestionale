@@ -34,22 +34,16 @@ export class DipendentiComponent implements OnInit {
   }
 
   deleteDipendente(dipendenteId: number): void {
-    this.dipendenteService.deleteDipendente(dipendenteId).subscribe(
-      () => this.getDipendenteByBuId(),
-      (error) => console.error('Error: ', error)
-    );
+    this.dipendenteService
+      .deleteDipendente(dipendenteId)
+      .subscribe(() => this.getDipendenteByBuId());
   }
 
   getDipById(id: number): void {
-    this.dipendenteService.getDipById(id).subscribe(
-      (dipendente) => {
-        this.router.navigate(['/dip/info', dipendente.id], {
-          state: { dipendente },
-        });
-      },
-      (error) => {
-        console.error('Error: ', error);
-      }
-    );
+    this.dipendenteService.getDipById(id).subscribe((dipendente) => {
+      this.router.navigate(['/dip/info', dipendente.id], {
+        state: { dipendente },
+      });
+    });
   }
 }

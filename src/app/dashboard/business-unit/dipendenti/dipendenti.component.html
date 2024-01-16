@@ -1,4 +1,7 @@
-<h3 class="grey-text">Lista Dipendenti</h3>
+<h3 class="grey-text" *ngIf="dipendenti">
+  Lista Dipendenti
+  <span>{{ dipendenti[0].businessUnit.nome }}</span>
+</h3>
 <table class="table table-hover table-responsive">
   <thead>
     <tr>
@@ -7,8 +10,7 @@
       <th scope="col">Cognome</th>
       <th scope="col" class="text-center">Business Unit</th>
       <th class="hide-on-mobile" scope="col">Data Assunzione</th>
-      <th></th>
-      <th></th>
+      <th colspan="2"><button class="btn btn-danger">Cestino</button></th>
     </tr>
   </thead>
   <tbody>
@@ -19,11 +21,8 @@
       <td class="text-center">{{ dipendente.businessUnit.nome }}</td>
       <td class="hide-on-mobile">{{ dipendente.dataAssunzione }}</td>
       <td>
-        <button
-          class="btn btn-primary me-4"
-          (click)="getDipById(dipendente.id)"
-        >
-          Info
+        <button class="btn btn-info me-4" (click)="getDipById(dipendente.id)">
+          <img src="/assets/svg-icons/info-icon.svg" alt="menu" />Info
         </button>
       </td>
       <td>

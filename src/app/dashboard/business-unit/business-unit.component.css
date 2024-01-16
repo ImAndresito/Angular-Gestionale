@@ -18,7 +18,7 @@ img {
 .btn {
   border: 2px solid var(--primary);
   border-radius: 30px;
-  padding: 8px 12px;
+  padding: 8px 16px;
 }
 
 .btn:hover {
