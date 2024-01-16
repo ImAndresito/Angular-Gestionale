@@ -8,6 +8,7 @@ import { BusinessUnitComponent } from './dashboard/business-unit/business-unit.c
 import { DipendentiComponent } from './dashboard/business-unit/dipendenti/dipendenti.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormAggiungiDipendenteComponent } from './dashboard/form-aggiungi-dipendente/form-aggiungi-dipendente.component';
+import { InfoDipendenteComponent } from './dashboard/business-unit/dipendenti/info-dipendente/info-dipendente.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FormAggiungiDipendenteComponent } from './dashboard/form-aggiungi-dipen
     BusinessUnitComponent,
     DipendentiComponent,
     FormAggiungiDipendenteComponent,
+    InfoDipendenteComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

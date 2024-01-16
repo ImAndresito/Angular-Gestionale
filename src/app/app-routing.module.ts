@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DipendentiComponent } from './dashboard/business-unit/dipendenti/dipendenti.component';
 import { BusinessUnitComponent } from './dashboard/business-unit/business-unit.component';
 import { FormAggiungiDipendenteComponent } from './dashboard/form-aggiungi-dipendente/form-aggiungi-dipendente.component';
+import { InfoDipendenteComponent } from './dashboard/business-unit/dipendenti/info-dipendente/info-dipendente.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'dip',
     component: DipendentiComponent,
+  },
+  {
+    path: 'dip/info/:id',
+    component: InfoDipendenteComponent,
   },
   {
     path: 'aggiungiDip',

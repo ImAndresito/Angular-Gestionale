@@ -1,0 +1,26 @@
+.grey-title {
+  color: #7e8080;
+  font-weight: 400;
+  padding: 0.5em;
+  font-size: 1.5em;
+}
+
+.table {
+  --bs-table-bg: transparent;
+  border-bottom: 1px solid var(--black);
+  text-align: center;
+}
+
+.table thead {
+  background-color: var(--grey);
+}
+
+.table thead th {
+  padding: 0.8em 0;
+  font-weight: 400;
+  font-size: 1.15em;
+}
+
+table td {
+  vertical-align: middle;
+}

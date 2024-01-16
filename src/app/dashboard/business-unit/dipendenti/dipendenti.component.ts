@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Dipendente } from 'src/app/interface/dipendente';
 import { DipendenteService } from 'src/app/service/dipendente.service';
@@ -14,10 +14,15 @@ export class DipendentiComponent implements OnInit {
 
   constructor(
     private dipendenteService: DipendenteService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
-  private getDipendenteByBuId() {
+  ngOnInit() {
+    this.getDipendenteByBuId();
+  }
+
+  getDipendenteByBuId() {
     this.route.queryParams.subscribe((params) => {
       this.selectedBusinessUnitId = params['buId'];
       this.dipendenteService
@@ -28,7 +33,23 @@ export class DipendentiComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    this.getDipendenteByBuId();
+  deleteDipendente(dipendenteId: number): void {
+    this.dipendenteService.deleteDipendente(dipendenteId).subscribe(
+      () => this.getDipendenteByBuId(),
+      (error) => console.error('Error: ', error)
+    );
+  }
+
+  getDipById(id: number): void {
+    this.dipendenteService.getDipById(id).subscribe(
+      (dipendente) => {
+        this.router.navigate(['/dip/info', dipendente.id], {
+          state: { dipendente },
+        });
+      },
+      (error) => {
+        console.error('Error: ', error);
+      }
+    );
   }
 }

@@ -1,10 +1,43 @@
 img {
-  width: calc(300px + 100px);
-  height: 200px;
+  width: calc(250px + 100px);
+  height: 150px;
 }
 
 .col-sm-6 {
   padding: 2em 4em;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.card-body h5 {
+  margin: 0;
+}
+
+.btn {
+  border: 2px solid var(--primary);
+  border-radius: 30px;
+  padding: 8px 12px;
+}
+
+.btn:hover {
+  color: var(--white);
+  background-color: var(--primary);
+}
+
+.card-info {
+  display: flex;
+  justify-content: space-around;
+  margin: 1.4em 0 0.5em;
+  text-align: left;
+}
+
+.card-info p {
+  border: 2px solid var(--black);
+  border-radius: 8px;
+  padding: 3px 32px 3px 6px;
+  margin: 0;
 }
 
 /* Medium devices (tablets, 768px and up) */
