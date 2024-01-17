@@ -10,12 +10,29 @@
       <th></th>
       <th scope="col">Nome</th>
       <th scope="col">Cognome</th>
-      <th scope="col" class="text-center hide-on-mobile">Email</th>
-      <th class="hide-on-mobile" scope="col">Data Assunzione</th>
-      <th colspan="2">
-        <button class="btn btn-danger">
-          <img src="/assets/svg-icons/trash-icon.svg" alt="menu" />Cestino
+      <th class="hide-on-mobile" scope="col">Business Unit</th>
+      <th scope="col" class="text-center hide-on-mobile">Cessato</th>
+      <th scope="col">
+        <button
+          class="btn btn-danger btn-delete"
+          *ngIf="!isButtonHidden"
+          (click)="toggleCessatoDisplay(); isButtonHidden = !isButtonHidden"
+        >
+          <img src="/assets/svg-icons/trash-icon.svg" alt="menu" />Cessati
         </button>
+      </th>
+      <th scope="col">
+        <img
+          style="cursor: pointer"
+          src="/assets/svg-icons/back-icon.svg"
+          alt="back"
+          *ngIf="isButtonHidden"
+          (click)="
+            toggleCessatoDisplay();
+            isButtonHidden = !isButtonHidden;
+            isButtonDisabled = !isButtonDisabled
+          "
+        />
       </th>
     </tr>
   </thead>
@@ -24,8 +41,8 @@
       <td></td>
       <td>{{ dipendente.nome }}</td>
       <td>{{ dipendente.cognome }}</td>
-      <td class="email hide-on-mobile">{{ dipendente.email }}</td>
-      <td class="hide-on-mobile">{{ dipendente.dataAssunzione }}</td>
+      <td class="hide-on-mobile">{{ dipendente.businessUnit.nome }}</td>
+      <td class="email hide-on-mobile">{{ dipendente.isCessato }}</td>
       <td>
         <button class="btn btn-info me-4" (click)="getDipById(dipendente.id)">
           <img src="/assets/svg-icons/info-icon.svg" alt="menu" />Info
@@ -34,9 +51,17 @@
       <td>
         <button
           class="btn btn-danger"
-          (click)="deleteDipendente(dipendente.id)"
+          *ngIf="!isButtonHidden"
+          (click)="cestinaDipendente(dipendente)"
         >
           Elimina
+        </button>
+        <button
+          class="btn btn-success"
+          *ngIf="isButtonHidden"
+          (click)="cestinaDipendente(dipendente)"
+        >
+          Reintegra
         </button>
       </td>
     </tr>

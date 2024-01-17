@@ -11,6 +11,9 @@ import { DipendenteService } from 'src/app/service/dipendente.service';
 export class DipendentiComponent implements OnInit {
   dipendenti: Dipendente[] = [];
   selectedBusinessUnitId: number | undefined;
+  showCessatoOnly: boolean = true; // Flag to determine whether to display only 'Cessato' dipendenti
+  isButtonDisabled: boolean = false;
+  isButtonHidden: boolean = false;
 
   constructor(
     private dipendenteService: DipendenteService,
@@ -28,14 +31,24 @@ export class DipendentiComponent implements OnInit {
       this.dipendenteService
         .getDipendentiByBusinessUnit(this.selectedBusinessUnitId)
         .subscribe((data) => {
-          this.dipendenti = data;
+          // Filter dipendenti based on isCessato property and the showCessatoOnly flag
+          this.dipendenti = this.showCessatoOnly
+            ? data.filter((dipendente) => dipendente.isCessato === true)
+            : data.filter((dipendente) => dipendente.isCessato !== true);
         });
     });
   }
 
-  deleteDipendente(dipendenteId: number): void {
+  // deleteDipendente(dipendenteId: number): void {
+  //   this.dipendenteService
+  //     .deleteDipendente(dipendenteId)
+  //     .subscribe(() => this.getDipendenteByBuId());
+  // }
+
+  cestinaDipendente(dipendente: Dipendente): void {
+    // Pass the dipendente.id as an argument to cestinaDipendente method
     this.dipendenteService
-      .deleteDipendente(dipendenteId)
+      .cestinaDipendente(dipendente.id)
       .subscribe(() => this.getDipendenteByBuId());
   }
 
@@ -45,5 +58,14 @@ export class DipendentiComponent implements OnInit {
         state: { dipendente },
       });
     });
+  }
+
+  toggleCessatoDisplay(): void {
+    this.isButtonDisabled = true; // Disable the button while fetching data
+
+    // Toggle the flag to switch between displaying only 'Cessato' and displaying all dipendenti
+    this.showCessatoOnly = !this.showCessatoOnly;
+    // Refresh dipendenti based on the new filter
+    this.getDipendenteByBuId();
   }
 }

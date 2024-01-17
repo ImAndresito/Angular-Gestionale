@@ -1,4 +1,7 @@
+<!-- CREAZIONE DI UN CONTAINER CHE AVRA' ALL'INTERNO ALTRI DUE CONTAINER; 1 PER LA SideBar e l'altra per il Contenuto. 
+!!!!!!!!!!!!!!!! ----- PER CAPIRE BENE COME FUNZIONA QUESTO CONTAINER ANDARE A VEDERE IL CSS ----- !!!!!!!!!!!!!!-->
 <div class="dashboard-container">
+  <!-- USO LE CLASSI NAV-BAR nonostante sia una SideBar, questo per poter applicare le classi di BOOTSTRAP.  -->
   <div class="navbar-container bg-body-tertiary">
     <nav class="navbar">
       <img
@@ -8,17 +11,18 @@
         routerLink="/"
         style="cursor: pointer"
       />
-      <!-- Binding dell'evento (click) a un metodo nel componente -->
-      <button *ngIf="!isLargeScreen" (click)="showMenu()">
+      <!-- Uso la structural directive *ngIf per dare una condizione e rimuovere un elemento dal DOM, in questo caso isLargeScreen controlla la dimensione del dispositivo da cui si sta usando l'applicativo. In questo caso se non è maggiore di .... allora sarà false (controlla il file .ts).
+      
+      Binding dell'evento (click) a una funzione che sta all'interno del .ts del component. -->
+      <button *ngIf="!isLargeScreen" (click)="onClickShowMenu()">
         <img src="/assets/svg-icons/hamburger-menu.svg" alt="menu" />
       </button>
-      <!-- Uso ngIf per dare una condizione basata sulla propietà del componente.
-      Se è true verra mostrato, se false no -->
+      <!--isLargeScreen sarà vera solo se lo schermo è superiore a .... e isMenuShowed diventerà vera solo quando la funzione show menu verrà avviata (on click sul bottone). -->
       <ul *ngIf="isMenuShowed || isLargeScreen" class="navbar-nav">
         <a class="nav-link" routerLink="/home" routerLinkActive="active"
           >BUSINESS UNIT</a
         >
-        <!-- <a class="nav-link">STAFF</a> -->
+        <a class="nav-link">STAFF</a>
       </ul>
     </nav>
     <button
@@ -28,6 +32,8 @@
       Aggiungi Dipendente
     </button>
   </div>
+
+  <!-- Div che contiene il contenuto dimanico. -->
   <div class="content-container">
     <router-outlet></router-outlet>
   </div>

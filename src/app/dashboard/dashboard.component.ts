@@ -6,18 +6,22 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent {
-  ngOnInit() {}
-
   isMenuShowed = false;
+
+  // isLarge è true solo se la dimensione della finestra è superiore a 768.
   isLargeScreen = window.innerWidth > 768;
 
-  showMenu() {
+  onClickShowMenu() {
     this.isMenuShowed = !this.isMenuShowed;
   }
 
-  //FAR SI CHE CONTROLLI LA DIMENSIONE DEL DISPOSITO SENZA DOVER RICARE LA PAGINA
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    this.isLargeScreen = event.target.innerWidth > 768;
+  // HostListener "controlla" cosa succede nel component ogni volta che avviene un'azione.In questo caso HostListener andrà in esecuzione ogni volta che la dimensione della finestra viene cambiata.
+  @HostListener('window:resize', ['$event']) onWindowResize(resize: any) {
+    this.isLargeScreen = resize.target.innerWidth > 768;
   }
+  // $event è una variabile che rappresenza l'evento che viene scatenato, in questo caso prende il valore di resize:any e lo da a window:resize
+  //Quando usato come parametro in un event binding, quest'ultimo prende i dati dell'evento e li passa al metodo associato.
+
+  // window:resize è un'evento che "controlla" il ridimensionamento della finestra.
+  // $event è un placeholder per evento dell'oggetto. Le quadre ([]) indicano che ci sarà da passare un evento all'oggetto come parametro alla funzione onWindowResize
 }

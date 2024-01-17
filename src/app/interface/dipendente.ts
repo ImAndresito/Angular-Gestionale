@@ -7,4 +7,5 @@ export interface Dipendente {
   email: string;
   codiceFiscale: string;
   dataNascita: string;
+  isCessato?: boolean;
 }
