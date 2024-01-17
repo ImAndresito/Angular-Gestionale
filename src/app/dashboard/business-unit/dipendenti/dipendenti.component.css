@@ -47,7 +47,6 @@ table td {
   vertical-align: middle;
 }
 
-/* Medium devices (tablets, 933px and up) */
 @media (min-width: 933px) {
   .btn img {
     display: inline;

@@ -24,7 +24,7 @@ export class BusinessUnitComponent {
   loadDipendenti(): void {
     if (this.selectedBusinessUnit !== undefined) {
       this.dipendenteService
-        .getDipendentiByBusinessUnit(this.selectedBusinessUnit)
+        .getDipByBuIdService(this.selectedBusinessUnit)
         .subscribe((data) => {
           this.dipendenti = data;
         });

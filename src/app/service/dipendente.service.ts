@@ -8,22 +8,17 @@ import { Dipendente } from '../interface/dipendente';
 })
 export class DipendenteService {
   private baseURL = 'http://localhost:8080/dip';
-  private deleteURL = 'http://localhost:8080/delete/dip';
   private getByIdURL = 'http://localhost:8080/dipendente';
   private addDip = 'http://localhost:8080/add/dipendente';
   private cestinaDipURL = 'http://localhost:8080/cestina/dip';
+  // private deleteURL = 'http://localhost:8080/delete/dip';
 
   constructor(private http: HttpClient) {}
 
-  getDipendentiByBusinessUnit(businessUnitId?: number): Observable<any[]> {
+  getDipByBuIdService(businessUnitId?: number): Observable<any[]> {
     const url = `${this.baseURL}/${businessUnitId}`;
     return this.http.get<any[]>(url);
   }
-
-  // deleteDipendente(dipendenteId: number): Observable<void> {
-  //   const url = `${this.deleteURL}/${dipendenteId}`;
-  //   return this.http.delete<void>(url);
-  // }
 
   getDipById(id: number): Observable<Dipendente> {
     const url = `${this.getByIdURL}/${id}`;
@@ -38,8 +33,13 @@ export class DipendenteService {
     return this.http.post<Dipendente>(url, dipendenteArray);
   }
 
-  cestinaDipendente(dipendenteId: number): Observable<Dipendente> {
+  cessaDipendente(dipendenteId: number): Observable<Dipendente> {
     const url = `${this.cestinaDipURL}/${dipendenteId}`;
     return this.http.put<Dipendente>(url, null);
   }
+
+  // deleteDipendente(dipendenteId: number): Observable<void> {
+  //   const url = `${this.deleteURL}/${dipendenteId}`;
+  //   return this.http.delete<void>(url);
+  // }
 }
