@@ -1,6 +1,4 @@
-// info-dipendente.component.ts
-
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Dipendente } from 'src/app/interface/dipendente';
 
@@ -9,7 +7,7 @@ import { Dipendente } from 'src/app/interface/dipendente';
   templateUrl: './info-dipendente.component.html',
   styleUrls: ['./info-dipendente.component.css'],
 })
-export class InfoDipendenteComponent implements OnInit {
+export class InfoDipendenteComponent {
   dipendente!: Dipendente;
 
   constructor(private route: ActivatedRoute) {}

@@ -7,16 +7,15 @@ import { Dipendente } from '../interface/dipendente';
   providedIn: 'root',
 })
 export class DipendenteService {
-  private baseURL = 'http://localhost:8080/dip';
+  private baseURL = 'http://localhost:8080/api/dipendenti';
   private getByIdURL = 'http://localhost:8080/dipendente';
   private addDip = 'http://localhost:8080/add/dipendente';
-  private cestinaDipURL = 'http://localhost:8080/cestina/dip';
   // private deleteURL = 'http://localhost:8080/delete/dip';
 
   constructor(private http: HttpClient) {}
 
-  getDipByBuIdService(businessUnitId?: number): Observable<any[]> {
-    const url = `${this.baseURL}/${businessUnitId}`;
+  getDipByBuId(businessUnitId?: number): Observable<any[]> {
+    const url = `${this.baseURL}/byBuId/${businessUnitId}`;
     return this.http.get<any[]>(url);
   }
 
@@ -34,7 +33,7 @@ export class DipendenteService {
   }
 
   cessaDipendente(dipendenteId: number): Observable<Dipendente> {
-    const url = `${this.cestinaDipURL}/${dipendenteId}`;
+    const url = `${this.baseURL}/${dipendenteId}`;
     return this.http.put<Dipendente>(url, null);
   }
 

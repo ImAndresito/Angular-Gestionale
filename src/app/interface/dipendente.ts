@@ -2,10 +2,12 @@ export interface Dipendente {
   id: number;
   nome: string;
   cognome: string;
-  dataAssunzione: string;
-  businessUnit: { id: number; nome: string };
-  email: string;
   codiceFiscale: string;
-  dataNascita: string;
-  isCessato?: boolean;
+  numeroTelefono: number;
+  email: string;
+  dataAssunzione: string;
+  dataInserimento: string;
+  cessato: boolean;
+  bu_id: number;
+  utente_inserimento_id: number;
 }

@@ -1,14 +1,14 @@
 <!-- *ngIf="dipendenti && dipendenti.length > 0 controlla se esiste un erray di dipendenti e che abbia una lunghezza manggiore di 0.
   Se dipendenti ha una lunghezza superiore a 0, il contenuto dentro l'h3 sarà mandato in display, altrimetti l'elemento non verrà visualizzato 
   Questo è opzionale, ma nel caso non ci fosse nessun dipendente andrebbe in comflitto con il bottone cestino, non mandandolo più in display, oltre a dare errori in console dato che non vi sta nessun tipo di controllo se undefined. -->
-<h3 class="grey-text" *ngIf="dipendenti && dipendenti.length > 0">
+<!-- <h3 class="grey-text" *ngIf="dipendenti && dipendenti.length > 0">
   Lista Dipendenti
   <span *ngIf="dipendenti[0].businessUnit">{{
     dipendenti[0].businessUnit.nome
-  }}</span>
-  <!-- {{ dipendenti[0].businessUnit.nome }}</span> controlla se "businessUnit" esiste nel primo elemento dell'array dipendenti.
+  }}</span> -->
+<!-- {{ dipendenti[0].businessUnit.nome }}</span> controlla se "businessUnit" esiste nel primo elemento dell'array dipendenti.
     Se esiste allora manderò in display il nome della businessUnit dentro il tag span. -->
-</h3>
+<!-- </h3> -->
 <table class="table table-hover table-responsive">
   <thead>
     <tr>
@@ -16,8 +16,7 @@
       <th scope="col">Nome</th>
       <th scope="col">Cognome</th>
       <!-- Vedi classe globale su style.css -->
-      <th class="hide-on-mobile" scope="col">Business Unit</th>
-      <th scope="col" class="text-center hide-on-mobile">Cessato</th>
+      <th class="hide-on-mobile" scope="col">Data Assunzione</th>
       <th scope="col">
         <button
           class="btn btn-danger btn-delete"
@@ -43,8 +42,7 @@
       <td></td>
       <td>{{ dipendente.nome }}</td>
       <td>{{ dipendente.cognome }}</td>
-      <td class="hide-on-mobile">{{ dipendente.businessUnit.nome }}</td>
-      <td class="email hide-on-mobile">{{ dipendente.isCessato }}</td>
+      <td class="email hide-on-mobile">{{ dipendente.dataAssunzione }}</td>
       <td>
         <button class="btn btn-info me-4" (click)="getDipById(dipendente.id)">
           <img src="/assets/svg-icons/info-icon.svg" alt="menu" />Info

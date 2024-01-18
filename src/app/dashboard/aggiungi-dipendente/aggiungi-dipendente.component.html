@@ -27,7 +27,7 @@
           <select
             id="businessUnit"
             class="form-select"
-            [(ngModel)]="newDipendente.businessUnit.id"
+            [(ngModel)]="newDipendente.bu_id"
             name="businessUnit"
           >
             <option *ngFor="let unit of businessUnits" [value]="unit.id">
@@ -87,7 +87,7 @@
             type="date"
             class="form-control"
             id="dataNascita"
-            [(ngModel)]="newDipendente.dataNascita"
+            [(ngModel)]="newDipendente.dataInserimento"
             name="dataNascita"
           />
         </div>

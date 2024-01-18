@@ -5,14 +5,14 @@
       <div class="card">
         <!-- Property binding per dare i dati necessari al tag img. -->
         <img
-          [src]="businessUnit.image"
+          src="assets/img/{{ businessUnit.nome }}.png"
           class="card-img-top"
-          [alt]="businessUnit.alt"
+          alt="{{ businessUnit.nome }}"
         />
         <div class="card-body">
           <!-- onClick per prendere i dipendenti in base alla loro buID. il parametro viene passato dal component. Controllare il file .ts. -->
           <a (click)="onBusinessClicked(businessUnit.id)" class="btn">
-            <h5 class="card-title">{{ businessUnit.name }}</h5>
+            <h5 class="card-title">{{ businessUnit.nome }}</h5>
           </a>
           <div class="card-info">
             <p>Utile mensile: {{ businessUnit.utileMensile }}</p>

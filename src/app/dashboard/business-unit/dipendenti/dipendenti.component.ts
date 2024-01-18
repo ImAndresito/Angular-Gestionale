@@ -11,7 +11,7 @@ import { DipendenteService } from 'src/app/service/dipendente.service';
 export class DipendentiComponent implements OnInit {
   dipendenti: Dipendente[] = [];
   selectedBusinessUnitId!: number;
-  showOnlyCessati: boolean = true;
+  showOnlyCessati: boolean = false;
   isButtonHidden: boolean = false;
 
   // Importo le cose necessarie.
@@ -35,15 +35,15 @@ export class DipendentiComponent implements OnInit {
 
       // this.dipendenteService.getDipByBuIdService(this.selectedBusinessUnitId).subscribe((data): Chiama un metodo del servizio, in questo caso "getDipByBuIdService" per recuperare l'elenco dei dipendenti in base a "selectedBusinessUnitId" fornito. Il risultato viene ottenuto nella variabile data.
       this.dipendenteService
-        .getDipByBuIdService(this.selectedBusinessUnitId)
+        .getDipByBuId(this.selectedBusinessUnitId)
 
         // Il blocco subscribe all'interno di questa parte gestisce il risultato (data). Filtra i dipendenti in base alla proprietà isCessato e alla variabile showOnlyCessati.
         // Se showOnlyCessati è true, filtra solo quei dipendenti in cui isCessato è true. In caso contrario, filtra i dipendenti in cui isCessato non è true (essenzialmente, dove isCessato è false o undefined).
         .subscribe((data) => {
           // Filtro i dipendenti basandomi sulla loro propietà isCessato e sulla variabile showOnlyCessati
           this.dipendenti = this.showOnlyCessati
-            ? data.filter((dipendente) => dipendente.isCessato === true)
-            : data.filter((dipendente) => dipendente.isCessato !== true);
+            ? data.filter((dipendente) => dipendente.cessato === true)
+            : data.filter((dipendente) => dipendente.cessato !== true);
         });
     });
   }

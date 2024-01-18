@@ -1,8 +1,6 @@
 export interface BusinessUnit {
   id: number;
-  name: string;
-  image: string;
-  alt: string;
+  nome: string;
   utileMensile: string;
   margine: string;
 }

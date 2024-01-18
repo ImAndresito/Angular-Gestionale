@@ -8,28 +8,21 @@ import { DipendenteService } from 'src/app/service/dipendente.service';
   styleUrls: ['./aggiungi-dipendente.component.css'],
 })
 export class AggiungiDipendenteComponent {
-  newDipendente: Dipendente = {
-    id: 0,
-    nome: '',
-    cognome: '',
-    dataAssunzione: '',
-    businessUnit: { id: 0, nome: '' },
-    email: '',
-    codiceFiscale: '',
-    dataNascita: '',
-  };
+  newDipendente: Partial<Dipendente> = {};
+
   businessUnits: { id: number; nome: string }[] = [
-    { id: 1, nome: 'DESIGN' },
-    { id: 2, nome: 'ICT' },
-    { id: 3, nome: 'INGEGNERIA' },
-    { id: 4, nome: 'SIEE' },
+    { id: 1, nome: 'ICT' },
+    { id: 2, nome: 'SIEE' },
+    { id: 3, nome: 'DESIGN' },
+    { id: 4, nome: 'INGEGNERIA' },
+    { id: 5, nome: 'STAFF' },
   ];
 
   constructor(private dipendenteService: DipendenteService) {}
 
   aggiungiDipendente() {
     this.dipendenteService
-      .addDipendente(this.newDipendente)
+      .addDipendente(this.newDipendente as Dipendente)
       .subscribe((response) => {
         console.log('Dipendente aggiunto con successo:', response);
       });

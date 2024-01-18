@@ -3,7 +3,7 @@
   <div class="dipendente-container">
     <h5 *ngIf="dipendente">{{ dipendente.nome }} {{ dipendente.cognome }}</h5>
     <p>
-      Business Unit: <b>{{ dipendente.businessUnit.nome }}</b>
+      Business Unit: <b>{{ dipendente.id }}</b>
     </p>
     <p>
       Data Assunzione: <b>{{ dipendente.dataAssunzione }}</b>
@@ -15,7 +15,7 @@
       Codice Fiscale: <b>{{ dipendente.codiceFiscale }}</b>
     </p>
     <p>
-      Data di Nascita: <b>{{ dipendente.dataNascita }}</b>
+      Data di Nascita: <b>{{ dipendente.dataAssunzione }}</b>
     </p>
     <button class="btn btn-danger">Modifica</button>
   </div>

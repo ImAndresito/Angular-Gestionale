@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BusinessUnit } from 'src/app/interface/business-unit';
+import { Dipendente } from 'src/app/interface/dipendente';
+import { BusinessUnitService } from 'src/app/service/business-unit.service';
 import { DipendenteService } from 'src/app/service/dipendente.service';
 
 @Component({
@@ -8,58 +10,34 @@ import { DipendenteService } from 'src/app/service/dipendente.service';
   templateUrl: './business-unit.component.html',
   styleUrls: ['./business-unit.component.css'],
 })
-export class BusinessUnitComponent implements OnInit {
+export class BusinessUnitComponent {
   selectedBusinessUnit: number | undefined;
-  dipendenti!: any[];
-  businessUnits: BusinessUnit[] = [
-    {
-      id: 1,
-      name: 'DESIGN',
-      image: '/assets/img/design.png',
-      alt: 'design',
-      utileMensile: '',
-      margine: '',
-    },
-    {
-      id: 2,
-      name: 'ICT',
-      image: '/assets/img/ict.png',
-      alt: 'ict',
-      utileMensile: '',
-      margine: '',
-    },
-    {
-      id: 3,
-      name: 'INGEGNERIA',
-      image: '/assets/img/ingegneria.png',
-      alt: 'ingegneria',
-      utileMensile: '',
-      margine: '',
-    },
-    {
-      id: 4,
-      name: 'SIEE',
-      image: '/assets/img/siee.png',
-      alt: 'ict',
-      utileMensile: '',
-      margine: '',
-    },
-  ];
+  dipendenti!: Dipendente[];
+
+  businessUnits!: BusinessUnit[];
 
   constructor(
     private dipendenteService: DipendenteService,
+    private businessUnitService: BusinessUnitService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.selectedBusinessUnit = 1;
-    this.loadDipendenti();
+    this.getBusinessUnit();
   }
 
-  loadDipendenti(): void {
+  getBusinessUnit() {
+    this.businessUnitService
+      .getBusinessUnitExceptStaff()
+      .subscribe((response) => {
+        this.businessUnits = response;
+      });
+  }
+
+  loadDipendenti() {
     if (this.selectedBusinessUnit !== undefined) {
       this.dipendenteService
-        .getDipByBuIdService(this.selectedBusinessUnit)
+        .getDipByBuId(this.selectedBusinessUnit)
         .subscribe((data) => {
           this.dipendenti = data;
         });
@@ -68,7 +46,6 @@ export class BusinessUnitComponent implements OnInit {
 
   onBusinessClicked(newBusinessClicked: number): void {
     this.selectedBusinessUnit = newBusinessClicked;
-    this.loadDipendenti();
     this.router.navigate(['/dip'], {
       queryParams: { buId: newBusinessClicked },
     });
