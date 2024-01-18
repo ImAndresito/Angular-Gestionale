@@ -1,64 +1,22 @@
-<div class="container-fluid">
+<div class="container col-md-12 col-xl-10">
   <div class="row">
-    <div class="col-sm-6">
-      <div class="card d-inline-block">
-        <img src="/assets/img/design.png" class="card-img-top" alt="design" />
-        <div class="card-body">
-          <a (click)="onBusinessClicked(1)" class="btn">
-            <h5 class="card-title">DESIGN</h5>
-          </a>
-          <div class="card-info">
-            <p>Utile mensile:</p>
-            <p>Margine:</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card d-inline-block">
-        <img src="/assets/img/ict.png" class="card-img-top" alt="ict" />
-        <div class="card-body">
-          <a (click)="onBusinessClicked(2)" class="btn">
-            <h5 class="card-title">ICT</h5>
-          </a>
-          <div class="card-info">
-            <p>Utile mensile:</p>
-            <p>Margine:</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="card d-inline-block">
+    <!-- Creo un *ngFor per rendere il codice html molto più pulito oltre a renderlo dinamico. -->
+    <div *ngFor="let businessUnit of businessUnits" class="col-sm-6 col-lg-5">
+      <div class="card">
+        <!-- Property binding per dare i dati necessari al tag img. -->
         <img
-          src="/assets/img/ingegneria.png"
+          [src]="businessUnit.image"
           class="card-img-top"
-          alt="ingegneria"
+          [alt]="businessUnit.alt"
         />
         <div class="card-body">
-          <a (click)="onBusinessClicked(3)" class="btn">
-            <h5 class="card-title">INGEGNERIA</h5>
+          <!-- onClick per prendere i dipendenti in base alla loro buID. il parametro viene passato dal component. Controllare il file .ts. -->
+          <a (click)="onBusinessClicked(businessUnit.id)" class="btn">
+            <h5 class="card-title">{{ businessUnit.name }}</h5>
           </a>
           <div class="card-info">
-            <p>Utile mensile:</p>
-            <p>Margine:</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card d-inline-block">
-        <img src="/assets/img/siee.png" class="card-img-top" alt="siee" />
-        <div class="card-body">
-          <a (click)="onBusinessClicked(4)" class="btn">
-            <h5 class="card-title">SIEE</h5>
-          </a>
-          <div class="card-info">
-            <p>Utile mensile:</p>
-            <p>Margine:</p>
+            <p>Utile mensile: {{ businessUnit.utileMensile }}</p>
+            <p>Margine: {{ businessUnit.margine }}</p>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BusinessUnit } from 'src/app/interface/business-unit';
 import { DipendenteService } from 'src/app/service/dipendente.service';
 
 @Component({
@@ -7,9 +8,43 @@ import { DipendenteService } from 'src/app/service/dipendente.service';
   templateUrl: './business-unit.component.html',
   styleUrls: ['./business-unit.component.css'],
 })
-export class BusinessUnitComponent {
+export class BusinessUnitComponent implements OnInit {
   selectedBusinessUnit: number | undefined;
   dipendenti!: any[];
+  businessUnits: BusinessUnit[] = [
+    {
+      id: 1,
+      name: 'DESIGN',
+      image: '/assets/img/design.png',
+      alt: 'design',
+      utileMensile: '',
+      margine: '',
+    },
+    {
+      id: 2,
+      name: 'ICT',
+      image: '/assets/img/ict.png',
+      alt: 'ict',
+      utileMensile: '',
+      margine: '',
+    },
+    {
+      id: 3,
+      name: 'INGEGNERIA',
+      image: '/assets/img/ingegneria.png',
+      alt: 'ingegneria',
+      utileMensile: '',
+      margine: '',
+    },
+    {
+      id: 4,
+      name: 'SIEE',
+      image: '/assets/img/siee.png',
+      alt: 'ict',
+      utileMensile: '',
+      margine: '',
+    },
+  ];
 
   constructor(
     private dipendenteService: DipendenteService,
