@@ -23,8 +23,8 @@ export class AggiungiDipendenteComponent {
   aggiungiDipendente() {
     this.dipendenteService
       .addDipendente(this.newDipendente as Dipendente)
-      .subscribe((response) => {
-        console.log('Dipendente aggiunto con successo:', response);
+      .subscribe(() => {
+        alert('Dipendente aggiunto con successo');
       });
   }
 }

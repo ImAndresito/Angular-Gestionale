@@ -6,8 +6,9 @@ export interface Dipendente {
   numeroTelefono: number;
   email: string;
   dataAssunzione: string;
-  dataInserimento: string;
+  dataInserimento?: string;
   cessato: boolean;
   bu_id: number;
-  utente_inserimento_id: number;
+  utente_inserimento_id?: number;
+  contratto?: string;
 }

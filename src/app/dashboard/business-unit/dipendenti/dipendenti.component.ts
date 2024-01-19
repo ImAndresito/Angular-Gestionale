@@ -2,6 +2,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Dipendente } from 'src/app/interface/dipendente';
 import { DipendenteService } from 'src/app/service/dipendente.service';
+import { BusinessUnitService } from 'src/app/service/business-unit.service';
+import { BusinessUnit } from 'src/app/interface/business-unit';
 
 @Component({
   selector: 'app-dipendenti',
@@ -10,6 +12,7 @@ import { DipendenteService } from 'src/app/service/dipendente.service';
 })
 export class DipendentiComponent implements OnInit {
   dipendenti: Dipendente[] = [];
+  businessUnit: BusinessUnit[] = [];
   selectedBusinessUnitId!: number;
   showOnlyCessati: boolean = false;
   isButtonHidden: boolean = false;
@@ -18,12 +21,19 @@ export class DipendentiComponent implements OnInit {
   constructor(
     private dipendenteService: DipendenteService,
     private route: ActivatedRoute,
+    private businessUnitService: BusinessUnitService,
     private router: Router
   ) {}
 
   // Avvio la funzione appena il componente viene caricato.
   ngOnInit() {
     this.getDipByBu();
+    this.getBusinessUnit();
+  }
+
+  getSelectedBusinessUnit(): BusinessUnit | undefined {
+    const firstDipendente = this.dipendenti[0];
+    return this.businessUnit.find((bu) => bu.id === firstDipendente?.bu_id);
   }
 
   // Mando in display i dipendenti basandomi sulla loro businessUnit ID.
@@ -49,10 +59,12 @@ export class DipendentiComponent implements OnInit {
   }
   // Questa funzione sembra far parte di un componente o servizio in un'applicazione Angular, dove viene utilizzata per recuperare e visualizzare un elenco filtrato di dipendenti in base all'ID dell'unità aziendale e al flag showOnlyCessati.
 
-  cestinaDipendente(dipendente: Dipendente): void {
-    // Pass the dipendente.id as an argument to cestinaDipendente method
+  cessaDipendente(dipendente: Dipendente): void {
+    // Determine the new 'cessato' status based on the current status
+    const newCessatoStatus = !dipendente.cessato;
+
     this.dipendenteService
-      .cessaDipendente(dipendente.id)
+      .cessaDipendente(dipendente.id, newCessatoStatus)
       .subscribe(() => this.getDipByBu());
   }
 
@@ -71,9 +83,19 @@ export class DipendentiComponent implements OnInit {
     this.getDipByBu();
   }
 
+  getBusinessUnit() {
+    this.businessUnitService
+      .getBusinessUnitExceptStaff()
+      .subscribe((response) => {
+        this.businessUnit = response;
+      });
+  }
+
   // deleteDipendente(dipendenteId: number): void {
   //   this.dipendenteService
   //     .deleteDipendente(dipendenteId)
   //     .subscribe(() => this.getDipByBu());
   // }
 }
+
+

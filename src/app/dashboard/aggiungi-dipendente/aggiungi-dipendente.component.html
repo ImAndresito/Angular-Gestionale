@@ -1,98 +1,113 @@
-<div class="form-container">
-  <form class="container" (ngSubmit)="aggiungiDipendente()">
-    <div class="left">
-      <form class="row g-3">
-        <div class="col-md-6">
-          <label for="nome" class="form-label">Nome</label>
-          <input
-            type="text"
-            class="form-control"
-            id="nome"
-            [(ngModel)]="newDipendente.nome"
-            name="nome"
-          />
-        </div>
-        <div class="col-md-6">
-          <label for="cognome" class="form-label">Cognome</label>
-          <input
-            type="text"
-            class="form-control"
-            id="cognome"
-            [(ngModel)]="newDipendente.cognome"
-            name="cognome"
-          />
-        </div>
-        <div class="col-md-4">
-          <label for="businessUnit" class="form-label">Business Unit</label>
-          <select
-            id="businessUnit"
-            class="form-select"
-            [(ngModel)]="newDipendente.bu_id"
-            name="businessUnit"
-          >
-            <option *ngFor="let unit of businessUnits" [value]="unit.id">
-              {{ unit.nome }}
-            </option>
-          </select>
-        </div>
-
-        <!-- <div class="col-md-4">
-          <label for="cliente" class="form-label">Cliente</label>
-          <select
-            id="cliente"
-            class="form-select"
-            [(ngModel)]="newDipendente.cliente"
-            name="cliente"
-          >
-            <option selected></option>
-            <option>Ferrari</option>
-            <option>Audi</option>
-            <option>Generali Mutua</option>
-            <option>Ital Design</option>
-          </select>
-        </div> -->
-        <div class="col-md-4">
-          <label for="dataAssunzione" class="form-label">Data assunzione</label>
-          <input
-            type="date"
-            class="form-control"
-            id="dataAssunzione"
-            [(ngModel)]="newDipendente.dataAssunzione"
-            name="dataAssunzione"
-          />
-        </div>
-        <div class="col-md-6">
-          <label for="email" class="form-label">Email</label>
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            [(ngModel)]="newDipendente.email"
-            name="email"
-          />
-        </div>
-        <div class="col-md-6">
-          <label for="codiceFiscale" class="form-label">Codice Fiscale</label>
-          <input
-            type="text"
-            class="form-control"
-            id="codiceFiscale"
-            [(ngModel)]="newDipendente.codiceFiscale"
-            name="codiceFiscale"
-          />
-        </div>
-        <div class="col-md-12">
-          <label for="dataNascita" class="form-label">Data Nascita</label>
-          <input
-            type="date"
-            class="form-control"
-            id="dataNascita"
-            [(ngModel)]="newDipendente.dataInserimento"
-            name="dataNascita"
-          />
-        </div>
-      </form>
+<div class="container">
+  <form (ngSubmit)="aggiungiDipendente()">
+    <div class="row">
+      <div class="col-6">
+        <label for="nome">Nome</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nome"
+          [(ngModel)]="newDipendente.nome"
+          name="nome"
+        />
+      </div>
+      <div class="col-6">
+        <label for="cognome">Cognome</label>
+        <input
+          type="text"
+          class="form-control"
+          id="cognome"
+          [(ngModel)]="newDipendente.cognome"
+          name="cognome"
+        />
+      </div>
     </div>
-    <button type="submit" class="btn btn-danger mt-4">Invia</button>
+
+    <div class="row">
+      <div class="col-6">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          class="form-control"
+          id="email"
+          [(ngModel)]="newDipendente.email"
+          name="email"
+        />
+      </div>
+      <div class="col-6">
+        <label for="numeroTelefono">Telefono</label>
+        <input
+          type="tel"
+          class="form-control"
+          id="numeroTelefono"
+          [(ngModel)]="newDipendente.numeroTelefono"
+          name="numeroTelefono"
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6">
+        <label for="businessUnit">Business Unit</label>
+        <select
+          class="form-select"
+          id="businessUnit"
+          [(ngModel)]="newDipendente.bu_id"
+          name="businessUnit"
+        >
+          <option selected></option>
+          <option value="1">ICT</option>
+          <option value="2">SIEE</option>
+          <option value="3">INGEGNERIA</option>
+          <option value="4">DESIGN</option>
+          <option value="5">STAFF</option>
+        </select>
+      </div>
+
+      <div class="col-6">
+        <label for="contratto">Contratto</label>
+        <select
+          class="form-select"
+          id="contratto"
+          [(ngModel)]="newDipendente.contratto"
+          name="contratto"
+        >
+          <option selected></option>
+          <option value="1">Tirocinante</option>
+          <option value="2">Apprendista</option>
+          <option value="3">Determinato</option>
+          <option value="4">Indeterminato</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6">
+        <label for="codiceFiscale">Codice Fiscale</label>
+        <input
+          type="text"
+          class="form-control"
+          id="codiceFiscale"
+          [(ngModel)]="newDipendente.codiceFiscale"
+          name="codiceFiscale"
+        />
+      </div>
+      <div class="col-6">
+        <label for="dataAssunzione">Data assunzione</label>
+        <input
+          type="date"
+          class="form-control"
+          id="dataAssunzione"
+          [(ngModel)]="newDipendente.dataAssunzione"
+          name="dataAssunzione"
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3 mx-auto mt-3">
+        <button type="submit" class="btn btn-success">Invia</button>
+      </div>
+    </div>
   </form>
 </div>

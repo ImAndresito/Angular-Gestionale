@@ -1,14 +1,7 @@
-<!-- *ngIf="dipendenti && dipendenti.length > 0 controlla se esiste un erray di dipendenti e che abbia una lunghezza manggiore di 0.
-  Se dipendenti ha una lunghezza superiore a 0, il contenuto dentro l'h3 sarà mandato in display, altrimetti l'elemento non verrà visualizzato 
-  Questo è opzionale, ma nel caso non ci fosse nessun dipendente andrebbe in comflitto con il bottone cestino, non mandandolo più in display, oltre a dare errori in console dato che non vi sta nessun tipo di controllo se undefined. -->
-<!-- <h3 class="grey-text" *ngIf="dipendenti && dipendenti.length > 0">
+<h3 *ngIf="getSelectedBusinessUnit()" class="grey-text">
   Lista Dipendenti
-  <span *ngIf="dipendenti[0].businessUnit">{{
-    dipendenti[0].businessUnit.nome
-  }}</span> -->
-<!-- {{ dipendenti[0].businessUnit.nome }}</span> controlla se "businessUnit" esiste nel primo elemento dell'array dipendenti.
-    Se esiste allora manderò in display il nome della businessUnit dentro il tag span. -->
-<!-- </h3> -->
+  <span>{{ getSelectedBusinessUnit()?.nome }}</span>
+</h3>
 <table class="table table-hover table-responsive">
   <thead>
     <tr>
@@ -53,7 +46,7 @@
         <button
           class="btn btn-danger"
           *ngIf="!isButtonHidden"
-          (click)="cestinaDipendente(dipendente)"
+          (click)="cessaDipendente(dipendente)"
         >
           Elimina
         </button>
@@ -62,7 +55,7 @@
         <button
           class="btn btn-success"
           *ngIf="isButtonHidden"
-          (click)="cestinaDipendente(dipendente)"
+          (click)="cessaDipendente(dipendente)"
         >
           Reintegra
         </button>
